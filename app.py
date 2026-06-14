@@ -3,7 +3,15 @@ import fitz  # PyMuPDF
 from ebooklib import epub
 import tempfile
 import os
+import sys
 
+# 1. First, import pytesseract so Python knows what it is
+import pytesseract
+
+# 2. Next, apply the smart environment detection settings
+if sys.platform.startswith('win'):
+    pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
+    
 # 1. Set up the Website Design
 st.set_page_config(page_title="Library EPUB Converter", page_icon="📚")
 st.title("Library Archive Converter 📚")
